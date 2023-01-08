@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>  
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  </head>
 <body style="margin : 0px; overflow: hidden;">
-<a-scene>
-  <a-assets>
-    <!-- Model by Lada.Repina from https://sketchfab.com/models/041ff593cec544c19a2a37cc38c06194 -->
-    <a-asset-item id="hamster-animated-gltf" src="https://cdn.rawgit.com/michaelnebeling/src/master/hamster_walk/scene.gltf"></a-asset-item>
+<a-scene webxr="optionalFeatures: hit-test;" ar-hit-test="target: #scalawag; type: map;" renderer="colorManagement: true;">
+			<a-assets>
+				<a-asset-item id="scalawag-gltf" src="../../models/tiger/scene.gltf"></a-asset-item>
+        <!-- <a-asset-item id="stage-gltf" src="assets/ha_stage.gltf"></a-asset-item> -->
+			</a-assets>
 
-    <!-- Model by pepedrago from https://sketchfab.com/models/0d655721128444b9954a25558f1c3be0 -->
-    <a-asset-item id="phaser-gltf" src="https://cdn.rawgit.com/michaelnebeling/src/master/phaser/scene.gltf"></a-asset-item>
+			<a-entity
+			id="scalawag"
+			gltf-model="#scalawag-gltf"
+			position="-0.9 0 -1.5"
+			scale="1.25 1.25 1.25"
+			shadow="receive: false"
+			animation-mixer></a-entity>
 
-    <!-- Model by Boris.M from https://sketchfab.com/models/03424fd66c6c4516a24194e4065b6b2b -->
-    <a-asset-item id="yoda-gltf" src="https://cdn.rawgit.com/michaelnebeling/src/master/sgp24_yoda_master/scene.gltf"></a-asset-item>
+      <!-- <a-entity 
+			hide-on-enter-ar
+			id="stage"
+			gltf-model="#stage-gltf"
+			shadow="cast: false"></a-entity> -->
 
-    <!-- Big Vegas from Adobe Mixamo: https://www.mixamo.com/#/?page=1&type=Character -->
-    <a-asset-item id="super_elvis-dae" src="https://cdn.rawgit.com/michaelnebeling/src/master/super_elvis/Flying.dae"></a-asset-item>
-  </a-assets>
+			<a-entity id="rig" position="0 0 2.2">
+				<a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
+			</a-entity>
 
-  <a-entity gltf-model="#hamster-animated-gltf" position="-6 0 -10" scale="0.01 0.01 0.01" animation-mixer></a-entity>
+			<a-entity light="type: ambient; intensity: 0.5;"></a-entity>
+			<a-entity light="type: directional; castShadow: true; intensity: 0.6;" position="-1 2 4"></a-entity>
 
-  <a-entity gltf-model="#phaser-gltf" position="-1 0 -10" rotation="0 -90 0" scale="0.01 0.01 0.01"></a-entity>
-
-  <a-entity collada-model="#super_elvis-dae" position="5 0 -10"></a-entity>
-  <a-sky color="white"></a-sky>  
-</a-scene>
+			<a-sky hide-on-enter-ar color="#19ABE5"></a-sky>
+		</a-scene>
 </body>
 </html>
