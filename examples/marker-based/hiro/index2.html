@@ -7,13 +7,12 @@
   </head>
 <body style="margin : 0px; overflow: hidden;">
 	<a-scene embedded arjs>
+		<a-assets>
+			<a-asset-item id="scalawag-gltf" src="../../models/tiger/scene.gltf"></a-asset-item>
+			<!-- <a-asset-item id="stage-gltf" src="assets/ha_stage.gltf"></a-asset-item> -->
+		</a-assets>
 		<a-marker preset="hiro">
 			<!-- <a-scene webxr="optionalFeatures: hit-test;" ar-hit-test="target: #scalawag; type: map;" renderer="colorManagement: true;"> -->
-				<a-assets>
-					<a-asset-item id="scalawag-gltf" src="../../models/tiger/scene.gltf"></a-asset-item>
-					<!-- <a-asset-item id="stage-gltf" src="assets/ha_stage.gltf"></a-asset-item> -->
-				</a-assets>
-
 				<a-entity
 				id="scalawag"
 				gltf-model="#scalawag-gltf"
