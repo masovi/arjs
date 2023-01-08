@@ -6,7 +6,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   </head>
 <body style="margin : 0px; overflow: hidden;">
-	<a-scene embedded arjs>
+	<a-scene webxr="optionalFeatures: hit-test;" ar-hit-test="target: #scalawag; type: map;" renderer="colorManagement: true;" embedded arjs>
 	<!-- <a-assets>
 		<a-asset-item id="scalawag-gltf" src="../../models/tiger/scene.gltf"></a-asset-item>
 		<!-- <a-asset-item id="stage-gltf" src="assets/ha_stage.gltf"></a-asset-item> -->
